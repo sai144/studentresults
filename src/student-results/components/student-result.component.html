@@ -1,0 +1,41 @@
+<table id="results">
+  <tr>
+    <th style="font-style: bold;">Student Result Table</th>
+  </tr>
+
+  <tr>
+    <th>
+      Student​ ​Name
+    </th>
+    <th>
+      Roll​ ​Number
+    </th>
+    <th>
+      Total​ ​Marks
+    </th>
+    <th>
+      Status
+    </th>
+  </tr>
+  <tr
+    *ngFor="let value of studentresults"
+    [ngClass]="{
+      greenclass: value.color === 'green',
+      redclass: value.color === 'red'
+    }"
+  >
+    <td>
+      {{ value.name }}
+    </td>
+    <td>
+      {{ value.rollNumber }}
+    </td>
+    <td>
+      {{ value.totalmarks }}
+    </td>
+    <td>
+      {{ value.status }}
+    </td>
+  </tr>
+</table>
+

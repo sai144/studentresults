@@ -1,0 +1,86 @@
+<form [formGroup]="studentprofileForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" formControlName="Name" />
+  </label>
+  <div
+    *ngIf="Name.invalid && (Name.dirty || Name.touched)"
+    class="alert-danger"
+  >
+    <div *ngIf="Name.errors.required">
+      Name is required
+    </div>
+    <div *ngIf="Name.errors.maxLength">
+      Name should not exceed 20 characters
+    </div>
+    <div *ngIf="Name.errors.pattern">
+      Only alphabets are allowed
+    </div>
+  </div>
+  <label>
+    LastName:
+    <input type="text" formControlName="LastName" />
+  </label>
+  <div
+    *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)"
+    class="alert-danger"
+  >
+    <div *ngIf="LastName.errors.required">
+      LastName is required
+    </div>
+    <div *ngIf="LastName.errors.maxLength">
+      Name should not exceed 20 characters
+    </div>
+    <div *ngIf="LastName.errors.pattern">
+      Only alphabets are allowed
+    </div>
+  </div>
+  <label>
+    Class:
+    <input type="text" formControlName="Class" />
+    <div
+      *ngIf="Class.invalid && (Class.dirty || Class.touched)"
+      class="alert-danger"
+    >
+      <div *ngIf="Class.errors.required">
+        Class is required
+      </div>
+    </div>
+  </label>
+  <label>
+    YearOfPassing:
+    <input type="text" formControlName="YearOfPassing" />
+  </label>
+  <div
+    *ngIf="
+      YearOfPassing.invalid && (YearOfPassing.dirty || YearOfPassing.touched)
+    "
+    class="alert-danger"
+  >
+    <div *ngIf="YearOfPassing.errors.required">
+      YearOfPassing is required
+    </div>
+    <div *ngIf="YearOfPassing.errors.pattern">
+      Only numbers are allowed
+    </div>
+  </div>
+  <label>
+    PercentageOfMarks:
+    <input type="text" formControlName="PercentageOfMarks" />
+  </label>
+  <div
+    *ngIf="
+      PercentageOfMarks.invalid &&
+      (PercentageOfMarks.dirty || PercentageOfMarks.touched)
+    "
+    class="alert-danger"
+  >
+    <div *ngIf="PercentageOfMarks.errors.required">
+      Percentage is required
+    </div>
+    <div *ngIf="PercentageOfMarks.errors.pattern">
+      Only numbers are allowed
+    </div>
+  </div>
+  <button type="submit"  [disabled]="!studentprofileForm.valid">Submit</button>
+</form>
